@@ -7,7 +7,20 @@
 <body>
 <div id='container'>
   <div class='signup'>
-    
+      <form action="" method="post">
+      		<input type="text" name="name" placeholder="Enter Name"required>
+      		<input type="email" name="email" placeholder="Enter Email"required>
+      		<input type="number" name="mobileNumber" placeholder="Enter Mobile Number"required>
+      		<select name="securityQuestion" required>
+      			<option value="Your first pet's name? ">Your first pet's name? </option>
+      			<option value="Name of your nursery you went?"> Name of your nursery you went?</option>
+      			<option value="Your dream Car?">Your dream Car? </option>
+      			<option value="Your hometown name?"> Your hometown name?</option>
+      		</select>
+      		<input type="text" name="answer" placeholder="Enter Answer"required>
+      		<input type="password" name="password" placeholder="Enter Password"required>
+      		<input type="submit" value="signup">
+      </form>
       <h2><a href="">Login</a></h2>
   </div>
   <div class='whysign'>

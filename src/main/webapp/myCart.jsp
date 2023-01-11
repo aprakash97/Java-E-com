@@ -58,8 +58,11 @@ h3
 		
 		%>
           <tr>
-            <th scope="col" style="background-color: yellow;">Total: <%out.print(total); %><i class="fa fa-inr"></i> </th>
-            <th scope="col"><a href="">Proceed to order</a></th>
+            <th scope="col" style="background-color: yellow;">Total: <%out.print(total); %> <i class="fa fa-usd">  </i> </th>
+            <% if(total > 0){ %>
+            <th scope="col"><a href="addressPaymentForOrder.jsp">Proceed to order</a></th>
+            <% 	}
+        	%>
           </tr>
         </thead>
         <thead>
@@ -67,7 +70,7 @@ h3
           <th scope="col">S.No</th>
             <th scope="col">Product Name</th>
             <th scope="col">Category</th>
-            <th scope="col"><i class="fa fa-inr"></i> price</th>
+            <th scope="col"><i class="fa fa-usd"></i> price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Sub Total</th>
             <th scope="col">Remove <i class='fas fa-trash-alt'></i></th>
@@ -84,9 +87,9 @@ h3
            <td></td>
             <td></td>
             <td></td>
-            <td><i class="fa fa-inr"></i> </td>
+            <td><i class="fa fa-usd"></i> </td>
             <td><a href=""><i class='fas fa-plus-circle'></i></a>  <a href=""><i class='fas fa-minus-circle'></i></a></td>
-            <td><i class="fa fa-inr"></i> </td>
+            <td><i class="fa fa-usd"></i> </td>
             <td><a href="">Remove <i class='fas fa-trash-alt'></i></a></td>
           </tr>
 

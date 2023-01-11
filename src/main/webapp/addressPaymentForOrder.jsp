@@ -13,7 +13,7 @@
 <thead>
 
           <tr>
-          <th scope="col"><a href=""><i class='fas fa-arrow-circle-left'> Back</i></a></th>
+          <th scope="col"><a href="myCart.jsp"><i class='fas fa-arrow-circle-left'> Back</i></a></th>
             <th scope="col" style="background-color: yellow;">Total: <i class="fa fa-inr"></i> </th>
           </tr>
         </thead>

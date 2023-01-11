@@ -47,14 +47,18 @@ h3
 				int total =0;
 				int sno = 0;
 				
+				Connection con = ConnectionProvider.getCon();
+				Statement st = con.createStatement();
+				ResultSet rs1 = st.executeQuery("select sum(total) from cart where email ='"+email+"' and address is NULL");
+				while(rs1.next()){
+					total=rs1.getInt(1);
+				}
 				
-			}catch(Exception e){
-				System.out.println(e);
-			}
+			
 		
 		%>
           <tr>
-            <th scope="col" style="background-color: yellow;">Total: <i class="fa fa-inr"></i> </th>
+            <th scope="col" style="background-color: yellow;">Total: <%out.print(total); %><i class="fa fa-inr"></i> </th>
             <th scope="col"><a href="">Proceed to order</a></th>
           </tr>
         </thead>
@@ -70,7 +74,11 @@ h3
           </tr>
         </thead>
         <tbody>
-      
+      <%
+      }catch(Exception e){
+				System.out.println(e);
+			}
+			%>
           <tr>
 
            <td></td>

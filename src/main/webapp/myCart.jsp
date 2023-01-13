@@ -78,21 +78,28 @@ h3
         </thead>
         <tbody>
       <%
+      	ResultSet rs = st.executeQuery("select * from product inner join cart on product.id=cart.product_id and cart.email ='" +email+"' and cart.address is NULL");
+      	while(rs.next()){
+      		%>
+      	  <tr>
+			<%sno=sno+1; %>
+           <td><%out.println(sno); %></td>
+            <td><%=rs.getString(2)%></td>
+            <td><%=rs.getString(3)%></td>
+            <td><i class="fa fa-usd"></i> <%=rs.getString(4)%></td>
+            <td><a href="incDecQuantityAction.jsp?id=<%=rs.getString(1)%>&quantity=inc"><i class='fas fa-plus-circle'></i></a>  <%=rs.getString(8)%><a href="incDecQuantityAction.jsp?id=<%=rs.getString(1)%>&quantity=dec"><i class='fas fa-minus-circle'></i></a></td>
+            <td><i class="fa fa-usd"></i> <%=rs.getString(10)%></td>
+            <td><a href="removeFromCart.jsp?id=<%=rs.getString(1)%>">Remove <i class='fas fa-trash-alt'></i></a></td>
+          </tr>
+          <% 
+		}
+      
+      
       }catch(Exception e){
 				System.out.println(e);
 			}
 			%>
-          <tr>
-
-           <td></td>
-            <td></td>
-            <td></td>
-            <td><i class="fa fa-usd"></i> </td>
-            <td><a href=""><i class='fas fa-plus-circle'></i></a>  <a href=""><i class='fas fa-minus-circle'></i></a></td>
-            <td><i class="fa fa-usd"></i> </td>
-            <td><a href="">Remove <i class='fas fa-trash-alt'></i></a></td>
-          </tr>
-
+        
         </tbody>
       </table>
       <br>

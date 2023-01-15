@@ -1,12 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@page import="project.ConnectionProvider" %>
+<%@page import="java.sql.*" %>
 
-</body>
-</html>
+<%
+	String email = session.getAttribute("email").toString();
+	String product_id = request.getParameter("id");
+	
+	try{
+	
+		Connection con = ConnectionProvider.getCon();
+		Statement st = con.createStatement();
+		st.executeUpdate("DELETE FROM cart WHERE email ='"+email+"' and product_id='"+product_id+"' and address is NULL");
+		response.sendRedirect("myCart.jsp?msg=removed");
+		
+	}catch(Exception e){
+		System.out.println(e);
+	}
+
+%>

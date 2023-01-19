@@ -78,7 +78,7 @@
 	</table>
 
 	<hr style="width: 100%">
-	<form action="addressPaymentForOrder.jsp" method="post">
+	<form action="addressPaymentForOrderAction.jsp" method="post">
 
 
 		<div class="left-div">

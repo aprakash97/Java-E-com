@@ -1,10 +1,16 @@
-
+<%@page import="project.ConnectionProvider"%>
+<%@page import="java.sql.*"%>
+<%@include file="footer.jsp" %>
 <html>
 <head>
 <link rel="stylesheet" href="css/bill.css">
 <title>Bill</title>
 </head>
 <body>
+
+<% 
+	String email = session.getAttribute("email").toString();
+%>
 
 <h3>Online shopping Bill (BTech Days)</h3>
 <hr>

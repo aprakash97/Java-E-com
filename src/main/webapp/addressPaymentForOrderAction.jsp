@@ -22,20 +22,24 @@
 		ps.setString(4, country);
 		ps.setString(5, mobileNumber);
 		ps.setString(6, email);
+		//System.out.println(ps.toString());
 		ps.executeUpdate();
 		
-		PreparedStatement ps1 = con.prepareStatement("update cart set address=?,city=?,state=?,country=?,mobileNumber=?orderDate=now(),deliveryDate=DATE_ADD(orderDate,INTERVAL 7 DAY), paymentMethod=?,transactionId=?,status=? where email=? and address is NULL");
-		ps.setString(1, address);
-		ps.setString(2, city);
-		ps.setString(3, state);
-		ps.setString(4, country);
-		ps.setString(5, mobileNumber);
-		ps.setString(6, paymentMethod);
-		ps.setString(7, transactionId);
-		ps.setString(8, status);
-		ps.setString(9, email);
-		ps.executeUpdate();
+		
+		PreparedStatement ps1 = con.prepareStatement("update cart set address=?,city=?,state=?,country=?,mobileNumber=?,orderDate=now(),deliveryDate=DATE_ADD(orderDate,INTERVAL 7 DAY), paymentMethod=?,transactionId=?,status=? where email=? and address is NULL");
+		ps1.setString(1, address);
+		ps1.setString(2, city);
+		ps1.setString(3, state);
+		ps1.setString(4, country);
+		ps1.setString(5, mobileNumber);
+		ps1.setString(6, paymentMethod);
+		ps1.setString(7, transactionId);
+		ps1.setString(8, status);
+		ps1.setString(9, email);
+		ps1.executeUpdate();
 		response.sendRedirect("bill.jsp");
+		
+		//DATAS ARE NOT BEING UPDATED in DB so the error might be in this file asdda 
 		
 	}catch(Exception e){
 		System.out.println(e);

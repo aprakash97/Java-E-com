@@ -37,6 +37,8 @@
 		ps.executeUpdate();
 		response.sendRedirect("bill.jsp");
 		
+		//DATAS ARE NOT BEING UPDATED in DB so the error might be in this file
+		
 	}catch(Exception e){
 		System.out.println(e);
 	}

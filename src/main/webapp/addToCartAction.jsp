@@ -17,14 +17,14 @@
 		Connection con = ConnectionProvider.getCon();
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery("Select * from product where id= '" +product_id+"'");
-		System.out.println("1 " + rs.toString());
+		//System.out.println("1 " + rs.toString());
 		while(rs.next()){
 			product_price = rs.getInt(4);
 			product_total = product_price;
 		}
 		
 		ResultSet rs1 = st.executeQuery("Select * from cart where product_id= '" +product_id+"' and email='"+email+"' and address is NULL");
-		System.out.println("2 " + rs1.toString());
+		//System.out.println("2 " + rs1.toString());
 		while(rs1.next()){
 			cart_total = rs1.getInt(5);
 			cart_total = cart_total + product_total;
@@ -36,12 +36,12 @@
 		if(z == 1){
 			st.executeUpdate("update cart set total = '" +cart_total+ "', quantity= '" +quantity+"' where product_id= '"+product_id+"' and email='"+email+"'and address is NULL");
 			response.sendRedirect("home.jsp?msg=exist");
-			System.out.println("3 "+ " Works ");
+			//System.out.println("3 "+ " Works ");
 		}
 		
 		if(z == 0){
 			PreparedStatement ps = con.prepareStatement("insert into cart(email,product_id, quantity,price, total) values (?,?,?,?,?)");
-			System.out.println("4 "+ ps.toString());
+			//System.out.println("4 "+ ps.toString());
 			ps.setString(1, email);
 			ps.setString(2, product_id);
 			ps.setInt(3, quantity);

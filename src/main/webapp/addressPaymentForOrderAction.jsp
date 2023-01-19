@@ -39,7 +39,7 @@
 		ps1.executeUpdate();
 		response.sendRedirect("bill.jsp");
 		
-		//DATAS ARE NOT BEING UPDATED in DB so the error might be in this file asdda
+		//DATAS ARE NOT BEING UPDATED in DB so the error might be in this file asdda asad
 		
 	}catch(Exception e){
 		System.out.println(e);

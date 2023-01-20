@@ -62,19 +62,23 @@
     <th>Quantity</th>
      <th>Sub Total</th>
   </tr>
-  
+  <%
+  	ResultSet rs1 = st.executeQuery("Select * from cart inner join product where cart.product_id=product_id and cart.email='"+email+"' and cart.status='bill'");
+    while(rs1.next()){
+    	sno=sno+1;
+  %>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-     <td></td>
+    <td><%out.println(sno); %></td>
+    <td><%=rs1.getString(17) %></td>
+    <td><%=rs1.getString(18) %></td>
+    <td><%=rs1.getString(19) %></td>
+    <td><%=rs1.getString(3) %></td>
+     <td><%=rs1.getString(5) %></td>
   </tr>
   <tr>
-
+<%} %>
 </table>
-<h3>Total: </h3>
+<h3>Total:<%out.println(total); %> <i class="fa fa-usd"></i> </h3>
 <a href="continueShopping.jsp"><button class="button left-button">Continue Shopping</button></a>
 <a onclick="window.print();"><button class="button right-button">Print</button></a>
 <br><br><br><br>

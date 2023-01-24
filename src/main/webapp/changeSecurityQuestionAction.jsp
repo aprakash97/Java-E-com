@@ -15,7 +15,6 @@
 		ResultSet rs = st.executeQuery("SELECT * FROM users WHERE email ='"+email+"' and password='"+password+"'");
 		
 		if(rs.next()){
-			check=1;
 			st.executeUpdate("UPDATE USERS set securityQuestion='"+securityQuestion+"',answer='"+newAnswer+"' where email='"+email+"'");
 			response.sendRedirect("changeSecurityQuestion.jsp?msg=done");
 		}else{
